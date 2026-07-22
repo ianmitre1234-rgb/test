@@ -244,7 +244,7 @@ let selectedAccount = null;
 
 const phases = [
   {
-    title: "Learn and falsify",
+    title: "Learn and test",
     description: "Build product credibility while testing the territory thesis in real conversations. Targets are starting hypotheses, not activity theatre.",
     columns: [
       ["Measurable outputs", "Complete core product and security workflows", "Run 3 message experiments across distinct cohorts", "Hold 20 discovery or problem-validation conversations"],
