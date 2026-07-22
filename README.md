@@ -12,7 +12,7 @@ The prototype demonstrates:
   nested inside the complete sales cycle;
 - a pipeline campaign lab with testable messages, activity maths, and explicit
   stop or change rules;
-- a conservative ROI model that discounts adoption and capacity realisation;
+- a conservative ROI model using sustained adoption and a capacity realisation rate;
 - evidence-led account hypotheses and buying groups;
 - a backwards pipeline calculator; and
 - an interactive 30/60/90-day execution plan.
