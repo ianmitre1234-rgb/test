@@ -16,7 +16,12 @@ const accounts = [
     ],
     why: "Public evidence points to a funded, UK-based organisation scaling engineering while making AI adoption both its product proposition and an internal operating priority.",
     entry: "Test whether the AI-first mandate includes developer workflows, then propose a measurable evaluation with one engineering team.",
-    stakeholders: [["Potential champion", "VP AI Engineering"], ["Potential buyer", "VP Engineering"], ["Likely users", "Software Engineers"], ["Likely reviewer", "Security & IT"]],
+    buyingGroup: [
+      { person: "Helen Greul", title: "VP of Engineering", fact: "Sponsored an engineering hackathon using Cursor and focused on AI adoption and developer-experience tooling.", assumedRole: "Likely champion and rollout owner", confidence: "High", source: ["Multiverse engineering hackathon", "9 Feb 2026", "https://www.multiverse.io/blog/the-future-is-built-in-a-week-inside-multiverse-s-latest-hackathon"] },
+      { person: "Colin Mackenzie", title: "VP AI Engineering", fact: "Leads the new engineering hub and agentic-product development.", assumedRole: "Potential AI engineering pilot leader", confidence: "High", source: ["Multiverse opens engineering hub", "8 Jun 2026", "https://www.multiverse.io/blog/multiverse-edinburgh-tech-hub-colin-mackenzie-vp-ai-engineering"] },
+      { person: "Security, Data Privacy & IT", title: "Verified internal functions", fact: "These functions participate alongside Engineering in technology initiatives.", assumedRole: "Likely security, privacy and deployment reviewers", confidence: "Medium", source: ["Multiverse engineering hackathon", "9 Feb 2026", "https://www.multiverse.io/blog/the-future-is-built-in-a-week-inside-multiverse-s-latest-hackathon"] },
+    ],
+    unknowns: ["Who owns developer-tool standards, licences and integrations?", "Who approves source-code access, model handling and SSO?", "Which leader controls budget and contracting?"],
     evaluation: ["20 developers", "30 days", "Baseline + cohort"],
   },
   {
@@ -37,7 +42,12 @@ const accounts = [
     ],
     why: "The evidence shows a London-headquartered AI company with a sizeable engineering team, fresh funding, and rapid enterprise growth.",
     entry: "Lead with technical discovery and a representative engineering workflow; a sophisticated AI team will expect product depth rather than generic productivity claims.",
-    stakeholders: [["Potential champion", "Engineering Lead"], ["Potential buyer", "VP Engineering"], ["Likely users", "Product Engineers"], ["Likely reviewer", "Security & IT"]],
+    buyingGroup: [
+      { person: "Peter Hill", title: "Chief Technology Officer", fact: "Current technical and product leader.", assumedRole: "Potential executive sponsor; budget authority unverified", confidence: "Medium", source: ["Peter Hill — Synthesia author profile", "Current page", "https://www.synthesia.io/blog/authors/peter-hill"] },
+      { person: "Gianluca Brindisi", title: "Application Security Engineer", fact: "Leads AI-security work, partners with Product and Engineering, and builds internal AI tooling.", assumedRole: "Potential technical-security champion and evaluator", confidence: "High", source: ["Gianluca Brindisi — Synthesia author profile", "Current page", "https://www.synthesia.io/blog/authors/gianluca-brindisi"] },
+      { person: "Engineering & Research Leads", title: "Verified governance function", fact: "Own AI-component design and development under secure-development lifecycle controls.", assumedRole: "Likely user group and governance reviewers", confidence: "High", source: ["Synthesia AI governance practices", "Sep 2024", "https://www.synthesia.io/legal/ai-governance-practices"] },
+    ],
+    unknowns: ["Which coding agents are standardised today?", "Who owns licence management and productivity measurement?", "What controls apply to prompts, code, models and audit logs?"],
     evaluation: ["25 developers", "21 days", "3 workflows"],
   },
   {
@@ -58,7 +68,12 @@ const accounts = [
     ],
     why: "Wayve combines exceptional AI depth, specialised engineering, major new capital, and a clear transition into commercial deployment.",
     entry: "Start with technical discovery around complex codebase navigation and define where AI-assisted development is appropriate within safety-sensitive engineering.",
-    stakeholders: [["Potential champion", "AI Platform Lead"], ["Potential buyer", "Engineering VP"], ["Likely users", "Research Engineers"], ["Likely reviewer", "Security & Safety"]],
+    buyingGroup: [
+      { person: "Silvius Rus", title: "SVP, Engineering", fact: "Leads engineering across robotics, data, compute, machine learning and infrastructure.", assumedRole: "Potential executive sponsor; budget authority unverified", confidence: "Medium", source: ["Wayve leadership team", "Current page", "https://wayve.ai/company/leadership-team/"] },
+      { person: "Pablo Castellanos García", title: "VP, Engineering", fact: "Owns computing and engineering infrastructure, including IT, build/release, cyber and data security.", assumedRole: "Likely tooling owner and technical champion", confidence: "High", source: ["Pablo Castellanos García — Wayve", "Current page", "https://wayve.ai/company/leadership-team/pablo-castellanos-garcia/"] },
+      { person: "Simone Fabris", title: "VP, Product and Delivery", fact: "Oversees product development and automotive quality, safety and security compliance.", assumedRole: "Likely production safety reviewer", confidence: "High", source: ["Simone Fabris — Wayve", "Current page", "https://wayve.ai/company/leadership-team/simone-fabris/"] },
+    ],
+    unknowns: ["Is developer tooling owned centrally by infrastructure?", "Can AI tools access safety-critical or model repositories?", "Who owns vendor onboarding and software-tool budget?"],
     evaluation: ["25 developers", "21 days", "Bounded workflows"],
   },
   {
@@ -79,7 +94,12 @@ const accounts = [
     ],
     why: "Public evidence shows an AI-native enterprise vendor making a substantial, long-term investment in London talent and R&D.",
     entry: "Propose a technically credible evaluation that separates developer experience, quality, and capacity outcomes.",
-    stakeholders: [["Potential champion", "Platform Lead"], ["Potential buyer", "Engineering VP"], ["Likely users", "Software Engineers"], ["Likely reviewer", "Security & Legal"]],
+    buyingGroup: [
+      { person: "Jamie Hutton", title: "Co-founder & CTO", fact: "Leads the global R&D organisation and Decision Intelligence Platform development.", assumedRole: "Potential executive sponsor or economic buyer", confidence: "High", source: ["Jamie Hutton — Quantexa", "Current page", "https://www.quantexa.com/about/leadership/jamie-hutton/"] },
+      { person: "Information Security", title: "Head of Information Security & Steering Group", fact: "Supports board and management oversight under ISO 27001, ISO 27017 and SOC 2 controls.", assumedRole: "Likely security and risk reviewer", confidence: "High", source: ["Quantexa ESG Report 2025", "2025", "https://www.quantexa.com/assets/x/9e62f4d915/esgreport_2025.pdf"] },
+      { person: "Guy Muir", title: "General Counsel & DPO", fact: "Heads Legal, sits on the executive team and serves as Data Protection Officer.", assumedRole: "Likely legal and privacy reviewer", confidence: "High", source: ["Guy Muir — Quantexa", "Current page", "https://www.quantexa.com/about/leadership/guy-muir/"] },
+    ],
+    unknowns: ["Who owns IDE and AI coding-tool standards?", "Does budget sit with R&D, IT or engineering teams?", "What code-retention and model-training conditions apply?"],
     evaluation: ["30 developers", "30 days", "2 cohorts"],
   },
   {
@@ -100,7 +120,13 @@ const accounts = [
     ],
     why: "Cleo provides unusually direct evidence of production AI engineering, rapid growth, and active technical hiring from its London base.",
     entry: "Use a concise, workflow-specific product demonstration and invite the team to define the technical bar for a fast evaluation.",
-    stakeholders: [["Potential champion", "ML or Platform Lead"], ["Potential buyer", "Engineering Director"], ["Likely users", "Product Engineers"], ["Likely reviewer", "Security & IT"]],
+    buyingGroup: [
+      { person: "Sam Taylor", title: "VP of Technology", fact: "Current executive technology leader.", assumedRole: "Potential executive sponsor; budget authority unverified", confidence: "Medium", source: ["Cleo leadership team", "Current page", "https://web.meetcleo.com/leadership"] },
+      { person: "Benjamin Pettit", title: "Head of Machine Learning", fact: "Leads ML in a product using proprietary models, third-party LLMs and agentic reasoning.", assumedRole: "Potential AI engineering champion and evaluator", confidence: "High", source: ["Cleo leadership team", "Current page", "https://web.meetcleo.com/leadership"] },
+      { person: "Director of InfoSec", title: "Open UK leadership role", fact: "Cleo is actively recruiting this security leadership function; no incumbent is identified.", assumedRole: "Likely security, privacy and third-party-risk reviewer", confidence: "High", source: ["Cleo careers", "Accessed 22 Jul 2026", "https://web.meetcleo.com/careers"] },
+      { person: "Colin Jones", title: "VP of Legal & Compliance", fact: "Current leader spanning Legal and Compliance.", assumedRole: "Likely legal, regulatory and contract reviewer", confidence: "High", source: ["Cleo leadership team", "Current page", "https://web.meetcleo.com/leadership"] },
+    ],
+    unknowns: ["Who owns developer tooling, IDE standards and licences?", "Who currently approves AI tools while InfoSec leadership is hiring?", "What is the budget owner and formal purchasing path?"],
     evaluation: ["15 developers", "21 days", "Fast-cycle pilot"],
   },
   {
@@ -121,7 +147,13 @@ const accounts = [
     ],
     why: "Monzo combines a mature engineering environment, operational ML adoption, and strong reported growth, but likely carries a higher security and procurement bar.",
     entry: "Lead with a developer-experience workflow hypothesis and ask a willing team to establish an observable baseline.",
-    stakeholders: [["Potential champion", "Developer Experience"], ["Potential buyer", "VP Engineering"], ["Likely users", "Product Engineers"], ["Likely reviewer", "Security & Procurement"]],
+    buyingGroup: [
+      { person: "Matej Pfajfar", title: "Group Chief Technology Officer", fact: "Current executive owner for Group Technology.", assumedRole: "Potential executive sponsor; tooling budget unverified", confidence: "High", source: ["Monzo executive team", "Current page", "https://monzo.com/meet-our-executive-team"] },
+      { person: "Platform Engineering", title: "Verified engineering function", fact: "Treats internal platform tooling as a product for Monzo engineers, including testing and approvals.", assumedRole: "Likely technical champion, evaluator and administrator", confidence: "High", source: ["The engineering behind Monzo’s platform", "13 May 2026", "https://monzo.com/blog/the-engineering-behind-the-platform"] },
+      { person: "Amy Grieveson", title: "Director of Security Behaviours & Governance", fact: "Designs security policies, systems and behaviour programmes; application-security ownership is not established.", assumedRole: "Potential security-governance reviewer", confidence: "Medium", source: ["Five minutes with Monzo’s Security Director", "Current page", "https://monzo.com/learn/money-safety/5-minutes-with-our-security-director"] },
+      { person: "Stephanie Pagni", title: "Chief Legal & Administrative Officer", fact: "Current executive leader for Legal and Administration.", assumedRole: "Potential legal and commercial reviewer", confidence: "Medium", source: ["Monzo executive team", "Current page", "https://monzo.com/meet-our-executive-team"] },
+    ],
+    unknowns: ["Which platform or DevEx leader owns AI coding-tool rollout?", "What policy applies to code, prompts and telemetry?", "What procurement and third-party approvals are required?"],
     evaluation: ["50 developers", "30 days", "Control cohort"],
   },
   {
@@ -142,7 +174,13 @@ const accounts = [
     ],
     why: "Fresh funding, product expansion, and visible AI/data investment create a timely hypothesis for a commercial evaluation.",
     entry: "Connect AI-assisted development to the growth agenda, then scope a pilot around one team with repeatable delivery work.",
-    stakeholders: [["Potential champion", "Engineering Manager"], ["Potential buyer", "CTO"], ["Likely users", "Product Engineers"], ["Likely reviewer", "Risk & Security"]],
+    buyingGroup: [
+      { person: "David Goaté", title: "Co-founder & Chief Architect", fact: "Leads engineering for the Car Finance team, which uses AI to reduce manual work.", assumedRole: "Potential technical champion or engineering sponsor", confidence: "High", source: ["How Marshmallow built Car Finance", "Jun 2026", "https://www.marshmallow.com/blog/building-car-finance"] },
+      { person: "Senior Engineering Manager", title: "Verified current function", fact: "A senior engineering-management role exists in the scaling technology organisation.", assumedRole: "Potential evaluator or rollout owner; remit unverified", confidence: "Medium", source: ["Jobs at Marshmallow", "Current page", "https://www.marshmallow.com/jobs"] },
+      { person: "Legal & Compliance", title: "Verified internal function", fact: "Advises product teams on FCA regulation, contracts and compliance questions.", assumedRole: "Likely legal and regulatory reviewer", confidence: "High", source: ["How Marshmallow built Car Finance", "Jun 2026", "https://www.marshmallow.com/blog/building-car-finance"] },
+      { person: "Data Protection Team", title: "Verified internal function", fact: "Handles data-protection questions and third-party processor arrangements.", assumedRole: "Likely privacy reviewer", confidence: "High", source: ["Marshmallow recruitment privacy notice", "15 Oct 2025", "https://www.marshmallow.com/recruitment-privacy-notice"] },
+    ],
+    unknowns: ["Who owns company-wide developer productivity?", "Does Engineering or central IT own budget and rollout policy?", "What FCA, privacy and security reviews apply to external AI?"],
     evaluation: ["20 developers", "30 days", "1 product group"],
   },
   {
@@ -163,7 +201,13 @@ const accounts = [
     ],
     why: "Dojo’s investment, operational scale, and stated AI-native ambition support a strong reason to test for an active developer-tooling initiative.",
     entry: "Explore bounded product-development workflows where velocity can improve without weakening review or security controls.",
-    stakeholders: [["Potential champion", "Engineering Director"], ["Potential buyer", "Technology SVP"], ["Likely users", "Software Engineers"], ["Likely reviewer", "Security & Legal"]],
+    buyingGroup: [
+      { person: "Rob Howes", title: "SVP of Technology", fact: "Oversees engineering and data communities and describes AI-generated code, tests and documentation at scale.", assumedRole: "Strong potential champion and technical sponsor", confidence: "High", source: ["Dojo: AI in business", "6 Nov 2025", "https://dojo.tech/resources/tech-on-toast-with-dojo-episode-six-ai-in-business/"] },
+      { person: "Nick Fryer", title: "Chief Technology Officer", fact: "Represents Dojo’s microservices, public-cloud and Kubernetes engineering architecture.", assumedRole: "Potential executive sponsor; budget authority unverified", confidence: "Medium", source: ["Dojo: transparency in payments", "29 Aug 2025", "https://dojo.tech/resources/tech-on-toast-with-dojo-podcast-episode-four-transparency-in-payments/"] },
+      { person: "Naveed Islam", title: "Chief Information Security Officer", fact: "Owns protection of Dojo’s information, systems and digital assets.", assumedRole: "Likely security approver and reviewer", confidence: "High", source: ["Dojo: cyber security in the age of AI", "1 Aug 2025", "https://dojo.tech/resources/tech-on-toast-with-dojo-episode-five-cyber-security-in-business-the-age-of-ai/"] },
+      { person: "Security & Legal", title: "Verified review functions", fact: "Technology works with both functions before AI proofs of concept progress.", assumedRole: "Likely rollout gatekeepers", confidence: "High", source: ["Dojo: AI in business", "6 Nov 2025", "https://dojo.tech/resources/tech-on-toast-with-dojo-episode-six-ai-in-business/"] },
+    ],
+    unknowns: ["Which AI coding tools are already deployed?", "How do the CTO and SVP split standards and budget?", "Which PCI, residency and supplier controls must be cleared?"],
     evaluation: ["40 developers", "30 days", "2 product teams"],
   },
   {
@@ -184,7 +228,12 @@ const accounts = [
     ],
     why: "The company has a mature platform organisation, measurable ML outcomes, and improving commercial performance, balanced by likely enterprise controls.",
     entry: "Map existing developer tooling and evaluate one measured workflow using a controlled cohort.",
-    stakeholders: [["Potential champion", "Platform Engineering"], ["Potential buyer", "VP Engineering"], ["Likely users", "Product Engineers"], ["Likely reviewer", "Security & Procurement"]],
+    buyingGroup: [
+      { person: "Shaun Puckrin", title: "Chief Product Officer", fact: "Leads product teams and sponsors MCP and AI-copilot strategy for developer workflows.", assumedRole: "Potential AI/product champion; tooling budget unverified", confidence: "Medium", source: ["GoCardless introduces AI-native tool", "18 Feb 2026", "https://gocardless.com/blog/gocardless-introduces-ai-native-tool"] },
+      { person: "Security Engineering", title: "Dedicated product-security and security-operations function", fact: "Operates under an ISO 27001 security-management programme.", assumedRole: "Likely technical-security reviewer", confidence: "High", source: ["GoCardless GDPR and security", "Current page", "https://gocardless.com/privacy/en-gdpr/"] },
+      { person: "Data Protection Officer", title: "Formal privacy function", fact: "GoCardless maintains a DPO and current public privacy-review route.", assumedRole: "Likely privacy and subprocessor reviewer", confidence: "High", source: ["GoCardless Privacy Centre", "30 Jun 2026", "https://gocardless.com/privacy/account-holders"] },
+    ],
+    unknowns: ["Who owns developer enablement and coding-assistant standards?", "Do Product, Engineering or central IT hold budget?", "Which ISO 27001 and supplier-assurance evidence is mandatory?"],
     evaluation: ["40 developers", "30 days", "Control cohort"],
   },
 ];
@@ -313,8 +362,22 @@ function selectAccount(name) {
       <p>${account.entry}</p>
     </div>
     <div class="detail-section">
-      <h4>BUYING GROUP</h4>
-      <div class="stakeholders">${account.stakeholders.map(([role, person]) => `<div class="stakeholder"><span>${role}</span><strong>${person}</strong></div>`).join("")}</div>
+      <h4>VERIFIED BUYING-GROUP EVIDENCE</h4>
+      <div class="buying-group">${account.buyingGroup.map((member) => `
+        <article class="buying-card">
+          <div class="buying-card-top">
+            <div><strong>${member.person}</strong><span>${member.title}</span></div>
+            <b class="confidence-badge ${member.confidence.toLowerCase()}">${member.confidence}</b>
+          </div>
+          <p><b>Verified:</b> ${member.fact}</p>
+          <p class="assumption"><b>Assumed deal role:</b> ${member.assumedRole}</p>
+          <a href="${member.source[2]}" target="_blank" rel="noopener noreferrer">${member.source[0]} · ${member.source[1]} ↗</a>
+        </article>
+      `).join("")}</div>
+    </div>
+    <div class="detail-section">
+      <h4>UNKNOWNS TO VALIDATE IN DISCOVERY</h4>
+      <ul class="unknown-list">${account.unknowns.map((unknown) => `<li>${unknown}</li>`).join("")}</ul>
     </div>
     <div class="detail-section">
       <h4>ILLUSTRATIVE EVALUATION</h4>

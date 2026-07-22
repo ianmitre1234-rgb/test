@@ -6,6 +6,8 @@ Commercial Account Executive role in London.
 The prototype demonstrates:
 
 - account prioritisation using a cited, transparent scoring model;
+- evidence-backed buying groups with verified people or functions, assumed deal
+  roles, confidence levels, and discovery unknowns;
 - evidence-led account hypotheses and buying groups;
 - a backwards pipeline calculator; and
 - an interactive 30/60/90-day execution plan.
