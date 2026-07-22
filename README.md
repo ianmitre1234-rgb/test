@@ -10,6 +10,9 @@ The prototype demonstrates:
   roles, confidence levels, and discovery unknowns;
 - account-level commercial timelines that show a focused product evaluation
   nested inside the complete sales cycle;
+- a pipeline campaign lab with testable messages, activity maths, and explicit
+  stop or change rules;
+- a conservative ROI model that discounts adoption and capacity realisation;
 - evidence-led account hypotheses and buying groups;
 - a backwards pipeline calculator; and
 - an interactive 30/60/90-day execution plan.

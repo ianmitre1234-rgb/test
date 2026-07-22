@@ -37,6 +37,7 @@
     <nav class="nav-tabs" aria-label="Primary navigation">
       <button class="nav-tab active" data-view="overview">Overview</button>
       <button class="nav-tab" data-view="territory">Territory</button>
+      <button class="nav-tab" data-view="campaigns">Campaign lab</button>
       <button class="nav-tab" data-view="model">Pipeline model</button>
       <button class="nav-tab" data-view="plan">90-day plan</button>
     </nav>
@@ -164,6 +165,22 @@
         </div>
       </section>
 
+      <section class="view" id="campaigns">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">PIPELINE CAMPAIGN LAB</p>
+            <h1>Turn signals into conversations.</h1>
+          </div>
+          <p>Three testable outbound plays, each with a specific audience, message, activity model, and stop rule.</p>
+        </div>
+
+        <div class="campaign-layout">
+          <div class="campaign-list" id="campaignList"></div>
+          <div class="campaign-detail" id="campaignDetail"></div>
+        </div>
+        <p class="campaign-disclaimer">Activity and conversion targets are planning hypotheses. They should be replaced with Cursor benchmarks after territory and funnel calibration.</p>
+      </section>
+
       <section class="view" id="model">
         <div class="page-heading">
           <div>
@@ -180,24 +197,24 @@
               <button id="resetModel">Reset</button>
             </div>
             <label class="range-control">
-              <span><b>Quarterly target</b><output id="targetOut">£800k</output></span>
-              <input id="target" type="range" min="300" max="1500" step="50" value="800" />
+              <span><b>Quarterly target</b><output id="targetOut">£300k</output></span>
+              <input id="target" type="range" min="100" max="1500" step="50" value="300" />
             </label>
             <label class="range-control">
-              <span><b>Average contract value</b><output id="acvOut">£25k</output></span>
-              <input id="acv" type="range" min="10" max="75" step="5" value="25" />
+              <span><b>Average contract value</b><output id="acvOut">£40k</output></span>
+              <input id="acv" type="range" min="10" max="100" step="5" value="40" />
             </label>
             <label class="range-control">
               <span><b>Opportunity win rate</b><output id="winOut">25%</output></span>
               <input id="win" type="range" min="10" max="50" step="5" value="25" />
             </label>
             <label class="range-control">
-              <span><b>Meeting → opportunity</b><output id="meetingOut">35%</output></span>
-              <input id="meeting" type="range" min="10" max="60" step="5" value="35" />
+              <span><b>Meeting → opportunity</b><output id="meetingOut">40%</output></span>
+              <input id="meeting" type="range" min="10" max="60" step="5" value="40" />
             </label>
             <label class="range-control">
-              <span><b>Evaluation → close</b><output id="evalOut">45%</output></span>
-              <input id="evaluation" type="range" min="20" max="75" step="5" value="45" />
+              <span><b>Evaluation → close</b><output id="evalOut">35%</output></span>
+              <input id="evaluation" type="range" min="20" max="75" step="5" value="35" />
             </label>
             <p class="model-note">Illustrative assumptions only. A real plan would be calibrated against Cursor’s historical conversion data.</p>
           </div>
@@ -205,24 +222,75 @@
           <div class="model-results">
             <div class="coverage-card">
               <span class="eyebrow">REQUIRED QUALIFIED PIPELINE</span>
-              <strong id="pipelineResult">£3.2m</strong>
+              <strong id="pipelineResult">£1.3m</strong>
               <div class="coverage-track"><span id="coverageBar"></span></div>
-              <p><b id="coverageResult">4.0×</b> target coverage at the selected win rate</p>
+              <p><b id="coverageResult">4.3×</b> target coverage at the selected win rate</p>
             </div>
             <div class="funnel">
               <div class="funnel-row meetings">
-                <span>Qualified meetings</span><strong id="meetingsResult">366</strong>
+                <span>Qualified meetings</span><strong id="meetingsResult">80</strong>
               </div>
               <div class="funnel-row opportunities">
-                <span>Opportunities created</span><strong id="opportunitiesResult">128</strong>
+                <span>Opportunities created</span><strong id="opportunitiesResult">32</strong>
               </div>
               <div class="funnel-row evaluations">
-                <span>Structured evaluations</span><strong id="evaluationsResult">71</strong>
+                <span>Structured evaluations</span><strong id="evaluationsResult">23</strong>
               </div>
               <div class="funnel-row wins">
-                <span>Closed-won accounts</span><strong id="winsResult">32</strong>
+                <span>Closed-won accounts</span><strong id="winsResult">8</strong>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="section-heading roi-heading">
+          <div>
+            <p class="eyebrow">CONSERVATIVE VALUE MODEL</p>
+            <h2>Discount the theoretical upside.</h2>
+          </div>
+          <p>Capacity value is not cash savings. This model applies adoption and realisation discounts before comparing value with programme cost.</p>
+        </div>
+
+        <div class="roi-layout">
+          <div class="roi-inputs">
+            <label class="range-control">
+              <span><b>Developers in rollout</b><output id="roiDevelopersOut">50</output></span>
+              <input id="roiDevelopers" type="range" min="10" max="250" step="10" value="50" />
+            </label>
+            <label class="range-control">
+              <span><b>Sustained adoption</b><output id="roiAdoptionOut">60%</output></span>
+              <input id="roiAdoption" type="range" min="20" max="90" step="5" value="60" />
+            </label>
+            <label class="range-control">
+              <span><b>Loaded cost per developer</b><output id="roiCostOut">£100k</output></span>
+              <input id="roiCost" type="range" min="60" max="180" step="5" value="100" />
+            </label>
+            <label class="range-control">
+              <span><b>Hours recovered per week</b><output id="roiHoursOut">2.0h</output></span>
+              <input id="roiHours" type="range" min="0.5" max="5" step="0.5" value="2" />
+            </label>
+            <label class="range-control">
+              <span><b>Capacity realisation discount</b><output id="roiRealisationOut">25%</output></span>
+              <input id="roiRealisation" type="range" min="10" max="60" step="5" value="25" />
+            </label>
+            <label class="range-control">
+              <span><b>Annual programme cost</b><output id="roiProgrammeOut">£30k</output></span>
+              <input id="roiProgramme" type="range" min="10" max="150" step="5" value="30" />
+            </label>
+          </div>
+          <div class="roi-results">
+            <div class="roi-primary">
+              <span class="eyebrow">RISK-ADJUSTED ANNUAL CAPACITY VALUE</span>
+              <strong id="roiAdjusted">£38k</strong>
+              <p>After adoption and realisation discounts</p>
+            </div>
+            <div class="roi-result-grid">
+              <div><span>Theoretical capacity</span><strong id="roiGross">£150k</strong></div>
+              <div><span>Net capacity value</span><strong id="roiNet">£8k</strong></div>
+              <div><span>Illustrative payback</span><strong id="roiPayback">9.6 mo</strong></div>
+              <div><span>Value / cost</span><strong id="roiRatio">1.3×</strong></div>
+            </div>
+            <p class="roi-caveat">Recovered capacity only creates value if teams redirect it to useful work. Validate hours, adoption, quality, and programme cost during the evaluation; do not present this as guaranteed savings.</p>
           </div>
         </div>
       </section>

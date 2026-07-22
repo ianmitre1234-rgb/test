@@ -244,31 +244,73 @@ let selectedAccount = null;
 
 const phases = [
   {
-    title: "Learn the system",
-    description: "Build product credibility, validate the territory assumptions, and get into live customer conversations immediately.",
+    title: "Learn and falsify",
+    description: "Build product credibility while testing the territory thesis in real conversations. Targets are starting hypotheses, not activity theatre.",
     columns: [
-      ["Product fluency", "Complete core workflows hands-on", "Shadow technical evaluations", "Build a five-minute role-based demo"],
-      ["Territory", "Validate ICP with internal data", "Score the first 100 accounts", "Map existing product-led signals"],
-      ["Customer contact", "Launch three message tests", "Hold 20 discovery conversations", "Capture objections verbatim"],
+      ["Measurable outputs", "Complete core product and security workflows", "Run 3 message experiments across distinct cohorts", "Hold 20 discovery or problem-validation conversations"],
+      ["Evidence created", "Calibrate ICP and funnel assumptions with internal data", "Tag every response by trigger, persona and objection", "Publish a weekly customer-language digest"],
+      ["Decision rules", "Stop a message after sufficient volume with no signal", "Promote only accounts with a verified trigger or usage", "Rewrite the thesis when evidence contradicts it"],
     ],
   },
   {
-    title: "Prove the motion",
-    description: "Turn early learning into structured evaluations, multi-threaded opportunities, and reusable commercial assets.",
+    title: "Prove repeatability",
+    description: "Convert the strongest signals into qualified opportunities and controlled evaluations with explicit exit criteria.",
     columns: [
-      ["Pipeline", "Double down on converting signals", "Run vertical micro-campaigns", "Build champion-to-executive paths"],
-      ["Evaluations", "Agree outcomes before access", "Create weekly evidence reviews", "Surface security requirements early"],
-      ["Enablement", "Publish objection patterns", "Create an ROI narrative", "Share product feedback with evidence"],
+      ["Measurable outputs", "Create 6 qualified opportunities as a planning target", "Launch 3 structured evaluations", "Map at least 3 relevant functions in every active deal"],
+      ["Quality gates", "No evaluation without baseline and success criteria", "Surface security, legal and procurement before midpoint", "Run weekly adoption and evidence reviews"],
+      ["Decision rules", "Disqualify opportunities without a problem or owner", "Extend evaluations only for a named evidence gap", "Escalate repeated product friction with verbatim evidence"],
     ],
   },
   {
-    title: "Scale what works",
-    description: "Close the loop from signal to outcome, codify the winning patterns, and expand beyond the first successful teams.",
+    title: "Scale proven signals",
+    description: "Turn outcomes into revenue, expansion paths, and playbooks—while closing experiments that did not earn further investment.",
     columns: [
-      ["Revenue", "Convert successful evaluations", "Build mutual close plans", "Create expansion hypotheses"],
-      ["Repeatability", "Document vertical playbooks", "Refine qualification thresholds", "Automate low-value research work"],
-      ["Feedback", "Report win/loss patterns", "Prioritise roadmap evidence", "Set next-quarter experiments"],
+      ["Measurable outputs", "Drive every evaluation to stop, extend or expand", "Create mutual action plans for qualified deals", "Document 2 repeatable campaign or evaluation plays"],
+      ["Operating assets", "Publish win, loss and no-decision patterns", "Build expansion hypotheses before initial close", "Automate only research steps with proven value"],
+      ["Quarter exit criteria", "Coverage meets the now-calibrated pipeline requirement", "Next-quarter experiments have owners and thresholds", "Product feedback is ranked by frequency and revenue impact"],
     ],
+  },
+];
+
+const campaigns = [
+  {
+    name: "AI-first builders",
+    thesis: "AI-native engineering teams should respond to workflow depth, governance, and standardisation—not generic productivity claims.",
+    accounts: ["Multiverse", "Synthesia", "Wayve", "Cleo"],
+    trigger: "Documented AI transformation, engineering expansion, or production agent development.",
+    personas: ["VP Engineering", "AI / ML leader", "Developer platform", "Application security"],
+    message: "Your teams are already building with AI. The useful question is not whether developers use coding agents, but which workflows deserve a governed standard and how you prove the outcome.",
+    cta: "20-minute AI development workflow assessment",
+    sequence: ["Day 1 · Evidence-led email", "Day 3 · Technical point-of-view", "Day 7 · Peer pattern or short demo", "Day 12 · Close-the-loop note"],
+    maths: [["Accounts", "30"], ["Relevant contacts", "90"], ["Positive replies", "9"], ["Meetings", "6"], ["Opportunities", "2"]],
+    assumptions: "Assumes 10% positive reply, 67% reply-to-meeting, and the 40% baseline meeting-to-opportunity rate; outputs are rounded.",
+    stop: "Pause after 90 relevant contacts if positive replies remain below 5%; inspect persona, trigger quality, and message specificity before adding volume.",
+  },
+  {
+    name: "Regulated engineering",
+    thesis: "Regulated software companies may engage when developer velocity is paired with an explicit security and governance path.",
+    accounts: ["Monzo", "Dojo", "GoCardless", "Marshmallow"],
+    trigger: "Public AI programmes, platform investment, growth, or a measurable production-ML outcome.",
+    personas: ["Platform engineering", "Engineering executive", "Security leader", "Legal / privacy"],
+    message: "Developer AI adoption is often already happening. The commercial opportunity is to evaluate it against agreed workflows while bringing security, privacy, and engineering evidence into one decision.",
+    cta: "Invite-only engineering and security evaluation workshop",
+    sequence: ["Day 1 · Account-specific hypothesis", "Day 4 · Security-first follow-up", "Day 8 · Evaluation framework", "Day 15 · Executive close-out"],
+    maths: [["Accounts", "25"], ["Relevant contacts", "100"], ["Positive replies", "8"], ["Meetings", "5"], ["Opportunities", "2"]],
+    assumptions: "Assumes 8% positive reply, 63% reply-to-meeting, and 40% meeting-to-opportunity.",
+    stop: "Change the play if security language creates interest but no engineering owner emerges; the problem may be governance rather than an active buying initiative.",
+  },
+  {
+    name: "Funded expansion",
+    thesis: "Fresh capital and technical hiring create a time-bound reason to discuss how engineering capacity scales without relying only on headcount.",
+    accounts: ["Wayve", "Synthesia", "Quantexa", "Marshmallow", "Multiverse"],
+    trigger: "Recent funding, planned technical hiring, new product expansion, or commercial deployment.",
+    personas: ["CTO", "VP Engineering", "Engineering director", "Finance / operations"],
+    message: "The hiring plan expands capacity over time. A focused developer-workflow evaluation can test whether existing teams gain useful capacity now, without treating theoretical time savings as cash savings.",
+    cta: "30-minute capacity and evaluation design session",
+    sequence: ["Day 1 · Trigger-led executive note", "Day 3 · Capacity model", "Day 6 · Engineering workflow proof", "Day 11 · Mutual evaluation outline"],
+    maths: [["Accounts", "20"], ["Relevant contacts", "60"], ["Positive replies", "6"], ["Meetings", "4"], ["Opportunities", "2"]],
+    assumptions: "Assumes 10% positive reply, 67% reply-to-meeting, and the 40% baseline meeting-to-opportunity rate; outputs are rounded.",
+    stop: "Stop using the funding trigger if replies do not connect it to an active engineering priority; funding alone is not purchase intent.",
   },
 ];
 
@@ -293,6 +335,70 @@ document.querySelectorAll("[data-go]").forEach((button) => button.addEventListen
 document.getElementById("themeToggle").addEventListener("click", () => {
   document.body.classList.toggle("dark");
 });
+
+function selectCampaign(index) {
+  const campaign = campaigns[index];
+  document.querySelectorAll(".campaign-select").forEach((button, buttonIndex) => {
+    button.classList.toggle("active", buttonIndex === index);
+  });
+  document.getElementById("campaignDetail").innerHTML = `
+    <div class="campaign-detail-head">
+      <div><p class="eyebrow">PLAY ${String(index + 1).padStart(2, "0")}</p><h2>${campaign.name}</h2></div>
+      <span>TESTABLE HYPOTHESIS</span>
+    </div>
+    <p class="campaign-thesis">${campaign.thesis}</p>
+    <div class="campaign-section">
+      <h3>TRIGGER</h3>
+      <p>${campaign.trigger}</p>
+    </div>
+    <div class="campaign-section">
+      <h3>ACCOUNT COHORT</h3>
+      <div class="campaign-chips">${campaign.accounts.map((name) => `<button data-campaign-account="${name}">${name} ↗</button>`).join("")}</div>
+    </div>
+    <div class="campaign-split">
+      <div class="campaign-section">
+        <h3>BUYING-GROUP ENTRY POINTS</h3>
+        <ul>${campaign.personas.map((persona) => `<li>${persona}</li>`).join("")}</ul>
+      </div>
+      <div class="campaign-section">
+        <h3>CALL TO ACTION</h3>
+        <p class="campaign-cta">${campaign.cta}</p>
+      </div>
+    </div>
+    <div class="campaign-section">
+      <h3>MESSAGE HYPOTHESIS</h3>
+      <blockquote class="campaign-message">${campaign.message}</blockquote>
+    </div>
+    <div class="campaign-section">
+      <h3>SEQUENCE</h3>
+      <div class="sequence-row">${campaign.sequence.map((step) => `<span>${step}</span>`).join("")}</div>
+    </div>
+    <div class="campaign-section">
+      <h3>PLANNING MATHS</h3>
+      <div class="campaign-maths">${campaign.maths.map(([label, value]) => `<div><strong>${value}</strong><span>${label}</span></div>`).join("")}</div>
+      <p class="math-assumption">${campaign.assumptions}</p>
+    </div>
+    <div class="stop-rule"><span>STOP / CHANGE RULE</span><p>${campaign.stop}</p></div>
+  `;
+  document.querySelectorAll("[data-campaign-account]").forEach((button) => button.addEventListener("click", () => {
+    navigate("territory");
+    selectAccount(button.dataset.campaignAccount);
+  }));
+}
+
+function renderCampaigns() {
+  document.getElementById("campaignList").innerHTML = campaigns.map((campaign, index) => `
+    <button class="campaign-select ${index === 0 ? "active" : ""}">
+      <span>${String(index + 1).padStart(2, "0")}</span>
+      <div><strong>${campaign.name}</strong><small>${campaign.accounts.length} named examples · ${campaign.cta}</small></div>
+      <b>→</b>
+    </button>
+  `).join("");
+  document.querySelectorAll(".campaign-select").forEach((button, index) => {
+    button.addEventListener("click", () => selectCampaign(index));
+  });
+  selectCampaign(0);
+}
 
 function renderLandscape() {
   const plot = document.getElementById("opportunityLandscape");
@@ -575,10 +681,40 @@ function updateModel() {
 
 modelInputs.forEach((id) => document.getElementById(id).addEventListener("input", updateModel));
 document.getElementById("resetModel").addEventListener("click", () => {
-  const defaults = { target: 800, acv: 25, win: 25, meeting: 35, evaluation: 45 };
+  const defaults = { target: 300, acv: 40, win: 25, meeting: 40, evaluation: 35 };
   Object.entries(defaults).forEach(([id, value]) => { document.getElementById(id).value = value; });
   updateModel();
 });
+
+const roiInputs = ["roiDevelopers", "roiAdoption", "roiCost", "roiHours", "roiRealisation", "roiProgramme"];
+function updateROI() {
+  const values = Object.fromEntries(roiInputs.map((id) => [id, Number(document.getElementById(id).value)]));
+  document.getElementById("roiDevelopersOut").textContent = values.roiDevelopers;
+  document.getElementById("roiAdoptionOut").textContent = `${values.roiAdoption}%`;
+  document.getElementById("roiCostOut").textContent = `£${values.roiCost}k`;
+  document.getElementById("roiHoursOut").textContent = `${values.roiHours.toFixed(1)}h`;
+  document.getElementById("roiRealisationOut").textContent = `${values.roiRealisation}%`;
+  document.getElementById("roiProgrammeOut").textContent = `£${values.roiProgramme}k`;
+
+  const hourlyCost = (values.roiCost * 1000) / (48 * 40);
+  const adoptionAdjusted = values.roiDevelopers
+    * (values.roiAdoption / 100)
+    * values.roiHours
+    * 48
+    * hourlyCost / 1000;
+  const riskAdjusted = adoptionAdjusted * (values.roiRealisation / 100);
+  const netValue = riskAdjusted - values.roiProgramme;
+  const paybackMonths = riskAdjusted > 0 ? (values.roiProgramme / riskAdjusted) * 12 : Infinity;
+  const valueRatio = values.roiProgramme > 0 ? riskAdjusted / values.roiProgramme : 0;
+
+  document.getElementById("roiGross").textContent = formatCompact(adoptionAdjusted);
+  document.getElementById("roiAdjusted").textContent = formatCompact(riskAdjusted);
+  document.getElementById("roiNet").textContent = `${netValue < 0 ? "−" : ""}${formatCompact(Math.abs(netValue))}`;
+  document.getElementById("roiPayback").textContent = Number.isFinite(paybackMonths) ? `${paybackMonths.toFixed(1)} mo` : "N/A";
+  document.getElementById("roiRatio").textContent = `${valueRatio.toFixed(1)}×`;
+}
+
+roiInputs.forEach((id) => document.getElementById(id).addEventListener("input", updateROI));
 
 function renderPhase(index) {
   const phase = phases[index];
@@ -601,5 +737,7 @@ document.addEventListener("keydown", (event) => {
 
 renderAccounts();
 renderLandscape();
+renderCampaigns();
 updateModel();
+updateROI();
 renderPhase(0);
