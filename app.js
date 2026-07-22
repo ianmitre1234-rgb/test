@@ -280,7 +280,10 @@ function selectAccount(name) {
           <span class="tag">${account.sector}</span>
         </div>
       </div>
-      <div class="detail-score"><strong>${score(account)}</strong><span>EVIDENCE SCORE</span></div>
+      <div class="detail-meta">
+        <div class="detail-score"><strong>${score(account)}</strong><span>EVIDENCE SCORE</span></div>
+        <a class="source-jump" href="#sources-${account.name.toLowerCase()}">${account.sources.length} cited sources ↓</a>
+      </div>
     </div>
     <div class="detail-section">
       <h4>EVIDENCE-BASED CASE</h4>
@@ -295,6 +298,7 @@ function selectAccount(name) {
             <div class="factor-track"><span style="width:${value * 20}%"></span></div>
             <p>${account.rationale[key]}</p>
             <div class="factor-citations">
+              <span>Sources:</span>
               ${account.factorSources[key].map((id) => {
                 const source = account.sources.find(([sourceId]) => sourceId === id);
                 return `<a href="${source[3]}" target="_blank" rel="noopener noreferrer" aria-label="Open source ${id}">${id} ↗</a>`;
@@ -316,7 +320,7 @@ function selectAccount(name) {
       <h4>ILLUSTRATIVE EVALUATION</h4>
       <div class="evaluation-line">${account.evaluation.map((item) => `<span>${item}</span>`).join("")}</div>
     </div>
-    <div class="detail-section source-section">
+    <div class="detail-section source-section" id="sources-${account.name.toLowerCase()}">
       <h4>PUBLIC SOURCES</h4>
       <ol class="source-list">${account.sources.map(([id, title, date, url]) => `
         <li><a href="${url}" target="_blank" rel="noopener noreferrer"><span>${id}</span><div><strong>${title}</strong><small>${date} · Open source ↗</small></div></a></li>
