@@ -246,7 +246,7 @@ h1 {
 .landscape-plot {
   min-height: 310px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background-image:
     linear-gradient(var(--line) 1px, transparent 1px),
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
@@ -318,6 +318,9 @@ h1 {
   font-family: var(--sans);
 }
 .landscape-bubble:hover .bubble-tooltip, .landscape-bubble:focus-visible .bubble-tooltip { display: block; }
+.landscape-bubble.tooltip-left .bubble-tooltip { right: -12px; left: auto; transform: none; }
+.landscape-bubble.tooltip-right .bubble-tooltip { right: auto; left: -12px; transform: none; }
+.landscape-bubble.tooltip-bottom .bubble-tooltip { top: calc(100% + 10px); bottom: auto; }
 .bubble-tooltip strong { display: block; margin-bottom: 6px; font-size: 12px; }
 .bubble-tooltip span { display: block; margin-bottom: 4px; color: var(--muted); font-size: 9px; }
 .bubble-tooltip b { color: var(--accent); font: 9px var(--mono); }
@@ -566,6 +569,18 @@ h1 {
 .unknown-list li::before { content: "?"; position: absolute; left: 0; color: var(--accent); font: 10px var(--mono); }
 .evaluation-line { display: flex; gap: 8px; flex-wrap: wrap; }
 .evaluation-line span { padding: 7px 9px; border-radius: 2px; background: var(--green-soft); color: var(--green); font: 9px var(--mono); }
+.cycle-summary { margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.cycle-summary strong { font-size: 10px; }
+.cycle-summary span { color: var(--accent); font: 9px var(--mono); }
+.sales-cycle { display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid var(--line); }
+.cycle-stage { min-height: 92px; padding: 9px; position: relative; border-right: 1px solid var(--line); display: flex; align-items: flex-start; flex-direction: column; gap: 7px; background: var(--surface); }
+.cycle-stage:last-child { border: 0; }
+.cycle-stage > span { color: var(--line-dark); font: 8px var(--mono); }
+.cycle-stage strong { font-size: 9px; line-height: 1.35; }
+.cycle-stage small { margin-top: auto; color: var(--muted); font: 8px var(--mono); }
+.cycle-stage.evaluation-stage { color: white; background: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent); }
+.cycle-stage.evaluation-stage > span, .cycle-stage.evaluation-stage small { color: rgba(255, 255, 255, .72); }
+.cycle-note { margin: 11px 0 0 !important; color: var(--muted); font-size: 9px !important; }
 .source-section { border-bottom: 0; }
 .source-list { margin: 0; padding: 0; list-style: none; }
 .source-list li { border-bottom: 1px solid var(--line); }
@@ -697,6 +712,10 @@ footer {
   .table-header, .account-row { grid-template-columns: 1fr 48px 20px; }
   .table-header span:nth-child(3), .signal-text { display: none; }
   .account-detail { padding: 22px; }
+  .sales-cycle { grid-template-columns: 1fr; }
+  .cycle-stage { min-height: 64px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .cycle-stage small { margin-top: 0; }
+  .cycle-summary { align-items: flex-start; flex-direction: column; }
   .model-results, .assumption-panel { padding: 20px; }
   .coverage-card > strong { font-size: 36px; }
   .funnel-row { width: 100% !important; clip-path: none; }

@@ -48,7 +48,7 @@ const accounts = [
       { person: "Engineering & Research Leads", title: "Verified governance function", fact: "Own AI-component design and development under secure-development lifecycle controls.", assumedRole: "Likely user group and governance reviewers", confidence: "High", source: ["Synthesia AI governance practices", "Sep 2024", "https://www.synthesia.io/legal/ai-governance-practices"] },
     ],
     unknowns: ["Which coding agents are standardised today?", "Who owns licence management and productivity measurement?", "What controls apply to prompts, code, models and audit logs?"],
-    evaluation: ["25 developers", "21 days", "3 workflows"],
+    evaluation: ["25 developers", "30 days", "3 workflows"],
   },
   {
     name: "Wayve", segment: "Scale-up", sector: "AI", signal: "Commercial deployment", location: "London",
@@ -74,7 +74,7 @@ const accounts = [
       { person: "Simone Fabris", title: "VP, Product and Delivery", fact: "Oversees product development and automotive quality, safety and security compliance.", assumedRole: "Likely production safety reviewer", confidence: "High", source: ["Simone Fabris — Wayve", "Current page", "https://wayve.ai/company/leadership-team/simone-fabris/"] },
     ],
     unknowns: ["Is developer tooling owned centrally by infrastructure?", "Can AI tools access safety-critical or model repositories?", "Who owns vendor onboarding and software-tool budget?"],
-    evaluation: ["25 developers", "21 days", "Bounded workflows"],
+    evaluation: ["25 developers", "30–45 days", "Bounded workflows"],
   },
   {
     name: "Quantexa", segment: "Mid-market", sector: "Enterprise AI", signal: "AI R&D investment", location: "London",
@@ -100,7 +100,7 @@ const accounts = [
       { person: "Guy Muir", title: "General Counsel & DPO", fact: "Heads Legal, sits on the executive team and serves as Data Protection Officer.", assumedRole: "Likely legal and privacy reviewer", confidence: "High", source: ["Guy Muir — Quantexa", "Current page", "https://www.quantexa.com/about/leadership/guy-muir/"] },
     ],
     unknowns: ["Who owns IDE and AI coding-tool standards?", "Does budget sit with R&D, IT or engineering teams?", "What code-retention and model-training conditions apply?"],
-    evaluation: ["30 developers", "30 days", "2 cohorts"],
+    evaluation: ["30 developers", "30–45 days", "2 cohorts"],
   },
   {
     name: "Cleo", segment: "Scale-up", sector: "Fintech", signal: "Production AI agents", location: "London",
@@ -127,7 +127,7 @@ const accounts = [
       { person: "Colin Jones", title: "VP of Legal & Compliance", fact: "Current leader spanning Legal and Compliance.", assumedRole: "Likely legal, regulatory and contract reviewer", confidence: "High", source: ["Cleo leadership team", "Current page", "https://web.meetcleo.com/leadership"] },
     ],
     unknowns: ["Who owns developer tooling, IDE standards and licences?", "Who currently approves AI tools while InfoSec leadership is hiring?", "What is the budget owner and formal purchasing path?"],
-    evaluation: ["15 developers", "21 days", "Fast-cycle pilot"],
+    evaluation: ["15 developers", "30 days", "Fast-cycle pilot"],
   },
   {
     name: "Monzo", segment: "Mid-market", sector: "Fintech", signal: "ML at operating scale", location: "London",
@@ -154,7 +154,7 @@ const accounts = [
       { person: "Stephanie Pagni", title: "Chief Legal & Administrative Officer", fact: "Current executive leader for Legal and Administration.", assumedRole: "Potential legal and commercial reviewer", confidence: "Medium", source: ["Monzo executive team", "Current page", "https://monzo.com/meet-our-executive-team"] },
     ],
     unknowns: ["Which platform or DevEx leader owns AI coding-tool rollout?", "What policy applies to code, prompts and telemetry?", "What procurement and third-party approvals are required?"],
-    evaluation: ["50 developers", "30 days", "Control cohort"],
+    evaluation: ["50 developers", "30–45 days", "Control cohort"],
   },
   {
     name: "Marshmallow", segment: "Scale-up", sector: "Insurtech", signal: "Funded product expansion", location: "London",
@@ -208,7 +208,7 @@ const accounts = [
       { person: "Security & Legal", title: "Verified review functions", fact: "Technology works with both functions before AI proofs of concept progress.", assumedRole: "Likely rollout gatekeepers", confidence: "High", source: ["Dojo: AI in business", "6 Nov 2025", "https://dojo.tech/resources/tech-on-toast-with-dojo-episode-six-ai-in-business/"] },
     ],
     unknowns: ["Which AI coding tools are already deployed?", "How do the CTO and SVP split standards and budget?", "Which PCI, residency and supplier controls must be cleared?"],
-    evaluation: ["40 developers", "30 days", "2 product teams"],
+    evaluation: ["40 developers", "30–45 days", "2 product teams"],
   },
   {
     name: "GoCardless", segment: "Mid-market", sector: "Fintech", signal: "Production ML outcomes", location: "London",
@@ -234,7 +234,7 @@ const accounts = [
       { person: "Data Protection Officer", title: "Formal privacy function", fact: "GoCardless maintains a DPO and current public privacy-review route.", assumedRole: "Likely privacy and subprocessor reviewer", confidence: "High", source: ["GoCardless Privacy Centre", "30 Jun 2026", "https://gocardless.com/privacy/account-holders"] },
     ],
     unknowns: ["Who owns developer enablement and coding-assistant standards?", "Do Product, Engineering or central IT hold budget?", "Which ISO 27001 and supplier-assurance evidence is mandatory?"],
-    evaluation: ["40 developers", "30 days", "Control cohort"],
+    evaluation: ["40 developers", "30–45 days", "Control cohort"],
   },
 ];
 
@@ -320,7 +320,12 @@ function renderLandscape() {
       ? account.name.split(/\s+/).map((word) => word[0]).join("").slice(0, 3)
       : account.name.slice(0, 3);
     const button = document.createElement("button");
-    button.className = `landscape-bubble ${account.segment.toLowerCase()}`;
+    button.className = [
+      "landscape-bubble",
+      account.segment.toLowerCase(),
+      x > 70 ? "tooltip-left" : x < 30 ? "tooltip-right" : "",
+      y > 68 ? "tooltip-bottom" : "",
+    ].filter(Boolean).join(" ");
     button.style.setProperty("--x", `${x}%`);
     button.style.setProperty("--y", `${y}%`);
     button.style.setProperty("--size", `${36 + (score(account) - 80) * 0.35}px`);
@@ -366,9 +371,38 @@ function renderAccounts() {
   document.querySelectorAll(".account-row").forEach((row) => row.addEventListener("click", () => selectAccount(row.dataset.account)));
 }
 
+function salesCycleFor(account) {
+  const complexAccounts = new Set(["Wayve", "Quantexa", "Monzo", "Dojo", "GoCardless"]);
+  if (complexAccounts.has(account.name)) {
+    return {
+      profile: "Complex commercial planning case",
+      total: "12–20 weeks end to end",
+      stages: [
+        ["Discovery", "2–3 weeks"],
+        ["Evaluation design + security", "2–4 weeks"],
+        ["Focused product evaluation", account.evaluation[1]],
+        ["Business case + decision", "1–2 weeks"],
+        ["Legal + procurement", "3–6 weeks"],
+      ],
+    };
+  }
+  return {
+    profile: "Standard commercial planning case",
+    total: "8–12 weeks end to end",
+    stages: [
+      ["Discovery", "1–2 weeks"],
+      ["Evaluation design + security", "1–2 weeks"],
+      ["Focused product evaluation", account.evaluation[1]],
+      ["Business case + decision", "1–2 weeks"],
+      ["Legal + procurement", "2–4 weeks"],
+    ],
+  };
+}
+
 function selectAccount(name) {
   selectedAccount = name;
   const account = accounts.find((item) => item.name === name);
+  const salesCycle = salesCycleFor(account);
   const rank = [...accounts].sort((a, b) => score(b) - score(a)).findIndex((item) => item.name === name) + 1;
   document.getElementById("accountDetail").innerHTML = `
     <div class="detail-top">
@@ -431,8 +465,22 @@ function selectAccount(name) {
       <ul class="unknown-list">${account.unknowns.map((unknown) => `<li>${unknown}</li>`).join("")}</ul>
     </div>
     <div class="detail-section">
-      <h4>ILLUSTRATIVE EVALUATION</h4>
+      <h4>PROPOSED PILOT STRUCTURE · PLANNING ASSUMPTION</h4>
       <div class="evaluation-line">${account.evaluation.map((item) => `<span>${item}</span>`).join("")}</div>
+    </div>
+    <div class="detail-section">
+      <h4>COMPLETE SALES CYCLE · EVALUATION NESTED WITHIN IT</h4>
+      <div class="cycle-summary"><strong>${salesCycle.profile}</strong><span>${salesCycle.total}</span></div>
+      <div class="sales-cycle">
+        ${salesCycle.stages.map(([stage, duration], index) => `
+          <div class="cycle-stage ${index === 2 ? "evaluation-stage" : ""}">
+            <span>${String(index + 1).padStart(2, "0")}</span>
+            <strong>${stage}</strong>
+            <small>${duration}</small>
+          </div>
+        `).join("")}
+      </div>
+      <p class="cycle-note">Planning range, not Cursor benchmark. Stages may overlap; the highlighted evaluation is one part of the wider commercial process.</p>
     </div>
     <div class="detail-section source-section" id="sources-${account.name.toLowerCase()}">
       <h4>PUBLIC SOURCES</h4>
