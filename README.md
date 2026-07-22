@@ -5,13 +5,18 @@ Commercial Account Executive role in London.
 
 The prototype demonstrates:
 
-- account prioritisation with an editable scoring model;
+- account prioritisation using a cited, transparent scoring model;
 - evidence-led account hypotheses and buying groups;
 - a backwards pipeline calculator; and
 - an interactive 30/60/90-day execution plan.
 
-All company assessments are illustrative hypotheses based on public context.
-The project uses no internal Cursor or customer data.
+Each account score uses four equally weighted dimensions—engineering evidence,
+AI signal, growth trigger, and commercial fit—rated from 0 to 5. Every rating
+links to the public evidence supporting it. Scores measure evidence strength,
+not purchase intent.
+
+All account recommendations are explicitly labelled as hypotheses. The project
+uses no internal Cursor or customer data. Research was checked on 22 July 2026.
 
 ## Run locally
 

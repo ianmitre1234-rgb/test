@@ -1,137 +1,195 @@
 const accounts = [
   {
-    name: "Monzo",
-    segment: "Mid-market",
-    sector: "Fintech",
-    signal: "Engineering scale",
-    location: "London",
-    factors: { engineering: 96, ai: 86, growth: 82, fit: 92, trigger: 76 },
-    why: "A digital product company where software delivery is the business. The hypothesis is that improving developer flow could compound across a large engineering organisation.",
-    entry: "Lead with a developer-experience workflow hypothesis and identify a team willing to establish a measurable baseline.",
-    stakeholders: [["Champion", "Developer Experience"], ["Economic buyer", "VP Engineering"], ["Influencer", "Platform Engineering"], ["Partner", "Security & Procurement"]],
-    evaluation: ["50 developers", "30 days", "3 workflows"],
-    confidence: "Medium",
+    name: "Multiverse", segment: "Mid-market", sector: "Edtech", signal: "AI-first transformation", location: "London",
+    factors: { engineering: 5, ai: 5, growth: 5, fit: 5 },
+    factorSources: { engineering: ["M2", "M3"], ai: ["M1", "M2", "M3"], growth: ["M1", "M2"], fit: ["M1", "M2", "M3"] },
+    rationale: {
+      engineering: "800+ employees, engineering teams in London and Berlin, a new AI/engineering hub, and 200 planned jobs.",
+      ai: "A dedicated VP AI Engineering, agentic-product development, and an internal mandate to become AI-first.",
+      growth: "$70m funding, 50% year-on-year revenue growth, and its first cash-positive quarter.",
+      fit: "UK-headquartered with fresh capital, technical hiring, and an explicit company-wide AI transformation.",
+    },
+    sources: [
+      ["M1", "Multiverse raises $70m to become Europe’s AI adoption platform", "15 May 2026", "https://www.multiverse.io/blog/multiverse-raises-70-million-europes-ai-adoption-platform"],
+      ["M2", "Multiverse opens Edinburgh tech hub and appoints VP AI Engineering", "8 Jun 2026", "https://www.multiverse.io/blog/multiverse-edinburgh-tech-hub-colin-mackenzie-vp-ai-engineering"],
+      ["M3", "Senior AI Engineer — AI Transformation", "Current job listing", "https://jobs.ashbyhq.com/multiverse/58389a21-a599-43b6-9869-9885a16e2072"],
+    ],
+    why: "Public evidence points to a funded, UK-based organisation scaling engineering while making AI adoption both its product proposition and an internal operating priority.",
+    entry: "Test whether the AI-first mandate includes developer workflows, then propose a measurable evaluation with one engineering team.",
+    stakeholders: [["Potential champion", "VP AI Engineering"], ["Potential buyer", "VP Engineering"], ["Likely users", "Software Engineers"], ["Likely reviewer", "Security & IT"]],
+    evaluation: ["20 developers", "30 days", "Baseline + cohort"],
   },
   {
-    name: "Wayve",
-    segment: "Scale-up",
-    sector: "AI",
-    signal: "AI-native culture",
-    location: "London",
-    factors: { engineering: 88, ai: 99, growth: 94, fit: 90, trigger: 90 },
-    why: "An AI-native organisation with highly technical teams and an apparent appetite for ambitious tooling. Product credibility would matter more than a generic sales motion.",
-    entry: "Start with technical discovery around complex codebase navigation, model-assisted development, and the boundaries required for safe adoption.",
-    stakeholders: [["Champion", "Engineering Lead"], ["Economic buyer", "VP Engineering"], ["Influencer", "Research Engineers"], ["Partner", "Security"]],
-    evaluation: ["25 developers", "21 days", "2 repositories"],
-    confidence: "Medium",
+    name: "Synthesia", segment: "Scale-up", sector: "AI", signal: "Engineering expansion", location: "London",
+    factors: { engineering: 5, ai: 5, growth: 5, fit: 5 },
+    factorSources: { engineering: ["S2", "S4"], ai: ["S1", "S4"], growth: ["S1", "S2"], fit: ["S1", "S3", "S4"] },
+    rationale: {
+      engineering: "Synthesia reports 80+ engineers, 400+ employees, and continued engineering and R&D hiring.",
+      ai: "AI is the core product; the company also cites an AI-agent roadmap and ISO 42001 certification.",
+      growth: "$200m Series E, a $4bn valuation, and planned headcount growth above 70%.",
+      fit: "London-headquartered enterprise software company with $100m+ ARR and global customer adoption.",
+    },
+    sources: [
+      ["S1", "Synthesia raises $200m Series E at $4bn valuation", "26 Jan 2026", "https://www.synthesia.io/post/series-e-200-million-4-billion-valuation-future-work"],
+      ["S2", "Synthesia expands globally with new offices", "21 Apr 2026", "https://www.synthesia.io/post/synthesia-global-expansion-austin-berlin-paris-zurich-2026"],
+      ["S3", "Synthesia surpasses $100m ARR", "15 Apr 2025", "https://www.synthesia.io/post/100-million-revenue-adobe-investment"],
+      ["S4", "Synthesia careers and engineering growth", "Current careers page", "https://www.synthesia.io/careers"],
+    ],
+    why: "The evidence shows a London-headquartered AI company with a sizeable engineering team, fresh funding, and rapid enterprise growth.",
+    entry: "Lead with technical discovery and a representative engineering workflow; a sophisticated AI team will expect product depth rather than generic productivity claims.",
+    stakeholders: [["Potential champion", "Engineering Lead"], ["Potential buyer", "VP Engineering"], ["Likely users", "Product Engineers"], ["Likely reviewer", "Security & IT"]],
+    evaluation: ["25 developers", "21 days", "3 workflows"],
   },
   {
-    name: "Dojo",
-    segment: "Mid-market",
-    sector: "Fintech",
-    signal: "Software centrality",
-    location: "London",
-    factors: { engineering: 90, ai: 79, growth: 86, fit: 92, trigger: 74 },
-    why: "Payments infrastructure creates a strong need for engineering velocity without compromising quality, security, or reliability.",
-    entry: "Explore whether Cursor can accelerate bounded product-development workflows while preserving existing review and security controls.",
-    stakeholders: [["Champion", "Engineering Director"], ["Economic buyer", "CTO"], ["Influencer", "Senior Developers"], ["Partner", "Security & Legal"]],
-    evaluation: ["40 developers", "30 days", "2 product teams"],
-    confidence: "Medium",
+    name: "Wayve", segment: "Scale-up", sector: "AI", signal: "Commercial deployment", location: "London",
+    factors: { engineering: 5, ai: 5, growth: 5, fit: 4 },
+    factorSources: { engineering: ["W2", "W3"], ai: ["W1", "W3"], growth: ["W1", "W4"], fit: ["W1", "W2"] },
+    rationale: {
+      engineering: "Wayve reported a 300-person workforce and expanded leadership across AI platforms, embedded systems, and fleet software.",
+      ai: "Embodied AI and foundation models are the company’s core technology.",
+      growth: "$1.5bn in secured capital and a move from research toward scaled commercial deployment.",
+      fit: "Strong London presence and investment, moderated because highly specialised automotive engineering may narrow applicable workflows.",
+    },
+    sources: [
+      ["W1", "Wayve secures $1.5bn for its autonomy platform", "25 Feb 2026", "https://wayve.ai/press/series-d/"],
+      ["W2", "Wayve expands engineering leadership", "26 Jun 2025", "https://wayve.ai/press/wayve-expands-engineering-leadership/"],
+      ["W3", "Science careers at Wayve", "Current careers page", "https://wayve.ai/thinking/science-at-wayve/"],
+      ["W4", "Wayve and Uber announce London L4 trials", "10 Jun 2025", "https://wayve.ai/press/wayve-uber-l4-autonomy-trials/"],
+    ],
+    why: "Wayve combines exceptional AI depth, specialised engineering, major new capital, and a clear transition into commercial deployment.",
+    entry: "Start with technical discovery around complex codebase navigation and define where AI-assisted development is appropriate within safety-sensitive engineering.",
+    stakeholders: [["Potential champion", "AI Platform Lead"], ["Potential buyer", "Engineering VP"], ["Likely users", "Research Engineers"], ["Likely reviewer", "Security & Safety"]],
+    evaluation: ["25 developers", "21 days", "Bounded workflows"],
   },
   {
-    name: "Marshmallow",
-    segment: "Scale-up",
-    sector: "Insurtech",
-    signal: "Growth trajectory",
-    location: "London",
-    factors: { engineering: 78, ai: 82, growth: 92, fit: 88, trigger: 86 },
-    why: "A fast-growing digital insurer offers a credible intersection of software intensity, regulated workflows, and pressure to scale efficiently.",
-    entry: "Connect AI-assisted development to the organisation’s growth agenda, then scope a pilot around a product team with repeatable delivery work.",
-    stakeholders: [["Champion", "Engineering Manager"], ["Economic buyer", "CTO"], ["Influencer", "Developers"], ["Partner", "Risk & Security"]],
-    evaluation: ["20 developers", "30 days", "1 product group"],
-    confidence: "Medium",
-  },
-  {
-    name: "Synthesia",
-    segment: "Scale-up",
-    sector: "AI",
-    signal: "AI product fluency",
-    location: "London",
-    factors: { engineering: 82, ai: 98, growth: 90, fit: 87, trigger: 83 },
-    why: "Teams already building with AI may evaluate developer tools with high sophistication and can become valuable product-feedback partners.",
-    entry: "Earn technical curiosity with a tailored demo using a representative workflow, then co-design success criteria with engineering leadership.",
-    stakeholders: [["Champion", "Staff Engineer"], ["Economic buyer", "VP Engineering"], ["Influencer", "Product Engineers"], ["Partner", "IT & Security"]],
-    evaluation: ["25 developers", "21 days", "3 use cases"],
-    confidence: "Medium",
-  },
-  {
-    name: "GoCardless",
-    segment: "Mid-market",
-    sector: "Fintech",
-    signal: "Developer platform",
-    location: "London",
-    factors: { engineering: 86, ai: 76, growth: 70, fit: 91, trigger: 65 },
-    why: "A mature engineering environment could provide a strong productivity case, but would require a rigorous approach to security and change management.",
-    entry: "Map the existing developer-tooling landscape and position a controlled evaluation against a workflow that teams already measure.",
-    stakeholders: [["Champion", "DevEx Lead"], ["Economic buyer", "VP Engineering"], ["Influencer", "Platform Team"], ["Partner", "Security & Procurement"]],
-    evaluation: ["40 developers", "30 days", "Control cohort"],
-    confidence: "Medium",
-  },
-  {
-    name: "Zego",
-    segment: "Scale-up",
-    sector: "Insurtech",
-    signal: "Digital-first model",
-    location: "London",
-    factors: { engineering: 72, ai: 75, growth: 76, fit: 84, trigger: 70 },
-    why: "A technology-led insurance proposition suggests meaningful engineering leverage and a clear connection between delivery speed and customer experience.",
-    entry: "Test for an executive priority around engineering efficiency, then recruit a developer champion to shape the initial workflow.",
-    stakeholders: [["Champion", "Engineering Manager"], ["Economic buyer", "CTO"], ["Influencer", "Product Engineers"], ["Partner", "Security"]],
-    evaluation: ["15 developers", "21 days", "1 workflow"],
-    confidence: "Low–medium",
-  },
-  {
-    name: "Multiverse",
-    segment: "Mid-market",
-    sector: "Edtech",
-    signal: "Product transformation",
-    location: "London",
-    factors: { engineering: 74, ai: 83, growth: 72, fit: 79, trigger: 82 },
-    why: "A technology-enabled learning business has both an engineering opportunity and an organisational narrative around responsible AI adoption.",
-    entry: "Frame the discussion around building internal AI fluency through an observable, governed developer evaluation.",
-    stakeholders: [["Champion", "Engineering Director"], ["Economic buyer", "CTO"], ["Influencer", "Product & Data"], ["Partner", "Legal & IT"]],
-    evaluation: ["20 developers", "30 days", "AI enablement"],
-    confidence: "Low–medium",
-  },
-  {
-    name: "Quantexa",
-    segment: "Mid-market",
-    sector: "Enterprise AI",
-    signal: "Technical complexity",
-    location: "London",
-    factors: { engineering: 88, ai: 94, growth: 84, fit: 84, trigger: 76 },
-    why: "Complex enterprise software and AI expertise create strong potential value, alongside a higher bar for technical validation and security.",
-    entry: "Use a technically credible evaluation plan that separates developer experience, code quality, and capacity outcomes.",
-    stakeholders: [["Champion", "Platform Lead"], ["Economic buyer", "Chief Product Officer"], ["Influencer", "Engineering"], ["Partner", "Security & Legal"]],
+    name: "Quantexa", segment: "Mid-market", sector: "Enterprise AI", signal: "AI R&D investment", location: "London",
+    factors: { engineering: 4, ai: 5, growth: 5, fit: 5 },
+    factorSources: { engineering: ["Q2", "Q3"], ai: ["Q2", "Q3"], growth: ["Q1", "Q4"], fit: ["Q1", "Q2", "Q4"] },
+    rationale: {
+      engineering: "A 900+ person company with more than 170 planned London AI Innovation Centre jobs; engineering headcount is not isolated.",
+      ai: "AI is core to the platform, backed by more than $250m in planned global R&D investment.",
+      growth: "$175m Series F, approximately 40% licence growth, customer additions, and a new London headquarters.",
+      fit: "London-headquartered enterprise software scale, dedicated AI hiring, and substantial fresh investment.",
+    },
+    sources: [
+      ["Q1", "Quantexa completes $175m Series F", "5 Mar 2025", "https://www.globenewswire.com/news-release/2025/03/05/3037089/0/en/Quantexa-Completes-USD-175-million-Series-F-Investment-Round-led-by-Teachers-Venture-Growth.html"],
+      ["Q2", "Quantexa to invest over $250m in AI R&D", "Company announcement", "https://www.quantexa.com/press/global-ai-investment/"],
+      ["Q3", "About Quantexa", "Current company page", "https://www.quantexa.com/about/"],
+      ["Q4", "Quantexa establishes new London global headquarters", "12 Feb 2026", "https://www.quantexa.com/press/quantexa-to-establish-new-global-headquarters-in-london-at-the-delft-gpe-s-landmark-building-on-the-south-bank/"],
+    ],
+    why: "Public evidence shows an AI-native enterprise vendor making a substantial, long-term investment in London talent and R&D.",
+    entry: "Propose a technically credible evaluation that separates developer experience, quality, and capacity outcomes.",
+    stakeholders: [["Potential champion", "Platform Lead"], ["Potential buyer", "Engineering VP"], ["Likely users", "Software Engineers"], ["Likely reviewer", "Security & Legal"]],
     evaluation: ["30 developers", "30 days", "2 cohorts"],
-    confidence: "Medium",
   },
   {
-    name: "Cleo",
-    segment: "Scale-up",
-    sector: "Fintech",
-    signal: "Product velocity",
-    location: "London",
-    factors: { engineering: 72, ai: 88, growth: 84, fit: 86, trigger: 80 },
-    why: "An AI-enabled consumer product suggests both technical fluency and a strong need to move quickly with a relatively lean team.",
-    entry: "Show a concise, workflow-specific demo and propose a lightweight evaluation with fast feedback loops.",
-    stakeholders: [["Champion", "Senior Engineer"], ["Economic buyer", "VP Engineering"], ["Influencer", "Product Engineers"], ["Partner", "IT"]],
-    evaluation: ["15 developers", "14 days", "Fast-cycle pilot"],
-    confidence: "Medium",
+    name: "Cleo", segment: "Scale-up", sector: "Fintech", signal: "Production AI agents", location: "London",
+    factors: { engineering: 4, ai: 5, growth: 5, fit: 5 },
+    factorSources: { engineering: ["C2", "C4"], ai: ["C3"], growth: ["C1", "C2"], fit: ["C2", "C3", "C4"] },
+    rationale: {
+      engineering: "Statutory reporting confirms aggressive AI, data, and engineering hiring; current listings include ML, MLOps, and engineering leadership.",
+      ai: "Cleo documents a production LLM agent architecture with tools, memory, and multimodal interactions.",
+      growth: "Reported 106% revenue growth in 2024, profitability, workforce expansion, and subsequent ARR above $250m.",
+      fit: "London presence, rapid technical hiring, production agent development, and strong reported commercial growth.",
+    },
+    sources: [
+      ["C1", "Cleo: 2024 year in review", "Published 2025", "https://web.meetcleo.com/2024-annual-report"],
+      ["C2", "Cleo AI Ltd 2024 statutory annual report", "25 Jun 2025", "https://www.datocms-assets.com/157778/1753283183-finanicalreport_072225_2.pdf"],
+      ["C3", "Building a financial agent on commoditised LLMs", "23 Jul 2025", "https://web.meetcleo.com/blog/building-a-financial-agent-on-top-of-commodified-llms"],
+      ["C4", "Cleo careers", "Current careers page", "https://web.meetcleo.com/careers"],
+    ],
+    why: "Cleo provides unusually direct evidence of production AI engineering, rapid growth, and active technical hiring from its London base.",
+    entry: "Use a concise, workflow-specific product demonstration and invite the team to define the technical bar for a fast evaluation.",
+    stakeholders: [["Potential champion", "ML or Platform Lead"], ["Potential buyer", "Engineering Director"], ["Likely users", "Product Engineers"], ["Likely reviewer", "Security & IT"]],
+    evaluation: ["15 developers", "21 days", "Fast-cycle pilot"],
+  },
+  {
+    name: "Monzo", segment: "Mid-market", sector: "Fintech", signal: "ML at operating scale", location: "London",
+    factors: { engineering: 4, ai: 4, growth: 5, fit: 5 },
+    factorSources: { engineering: ["MO2", "MO3", "MO4"], ai: ["MO2"], growth: ["MO1"], fit: ["MO1", "MO3"] },
+    rationale: {
+      engineering: "Formal engineering leadership frameworks, current technology hiring, and a production ML platform; no current public engineering headcount.",
+      ai: "ML supports fraud, credit, personalisation, and operations, with explicit plans to expand LLM use.",
+      growth: "FY2026 reporting cites 39% revenue growth, three million new customers, and 45% business-banking growth.",
+      fit: "Large UK operation, active expansion, and a broad regulated technology estate.",
+    },
+    sources: [
+      ["MO1", "Monzo 2026 annual report", "FY2026", "https://monzo.com/annual-report/2026"],
+      ["MO2", "Machine learning at Monzo in 2025", "21 Nov 2025", "https://monzo.com/blog/machine-learning-at-monzo-in-2025"],
+      ["MO3", "Careers at Monzo", "Current careers page", "https://monzo.com/careers"],
+      ["MO4", "Engineering progression frameworks at scale", "22 Apr 2021", "https://monzo.com/blog/lessons-from-implementing-progression-frameworks-at-scale"],
+    ],
+    why: "Monzo combines a mature engineering environment, operational ML adoption, and strong reported growth, but likely carries a higher security and procurement bar.",
+    entry: "Lead with a developer-experience workflow hypothesis and ask a willing team to establish an observable baseline.",
+    stakeholders: [["Potential champion", "Developer Experience"], ["Potential buyer", "VP Engineering"], ["Likely users", "Product Engineers"], ["Likely reviewer", "Security & Procurement"]],
+    evaluation: ["50 developers", "30 days", "Control cohort"],
+  },
+  {
+    name: "Marshmallow", segment: "Scale-up", sector: "Insurtech", signal: "Funded product expansion", location: "London",
+    factors: { engineering: 4, ai: 4, growth: 5, fit: 4 },
+    factorSources: { engineering: ["MA2", "MA3", "MA4"], ai: ["MA3", "MA4"], growth: ["MA1", "MA2", "MA4"], fit: ["MA1", "MA2"] },
+    rationale: {
+      engineering: "700+ employees, London technology teams, explicit ML and data roles, and a 15-person new-product team.",
+      ai: "AI and ML appear in the data-team design and a live car-finance operation, although outcomes are not quantified.",
+      growth: "$90m funding, a valuation above $2bn, profitability, and new-product expansion.",
+      fit: "A sizeable London fintech with active product expansion and regulated technology needs.",
+    },
+    sources: [
+      ["MA1", "Marshmallow secures $90m at a $2bn valuation", "15 Apr 2025", "https://portageinvest.com/blog/uk-fintech-marshmallow-secures-90-million-in-funding-at-a-valuation-of-2-billion/"],
+      ["MA2", "Jobs at Marshmallow", "Current careers page", "https://www.marshmallow.com/jobs"],
+      ["MA3", "Marshmallow’s data-team structure", "Company engineering blog", "https://www.marshmallow.com/blog/our-new-data-team-structure"],
+      ["MA4", "How Marshmallow built its car-finance product", "Jun 2026", "https://www.marshmallow.com/blog/building-car-finance"],
+    ],
+    why: "Fresh funding, product expansion, and visible AI/data investment create a timely hypothesis for a commercial evaluation.",
+    entry: "Connect AI-assisted development to the growth agenda, then scope a pilot around one team with repeatable delivery work.",
+    stakeholders: [["Potential champion", "Engineering Manager"], ["Potential buyer", "CTO"], ["Likely users", "Product Engineers"], ["Likely reviewer", "Risk & Security"]],
+    evaluation: ["20 developers", "30 days", "1 product group"],
+  },
+  {
+    name: "Dojo", segment: "Mid-market", sector: "Fintech", signal: "AI-native programme", location: "London",
+    factors: { engineering: 3, ai: 4, growth: 5, fit: 4 },
+    factorSources: { engineering: ["D1", "D2", "D4"], ai: ["D3"], growth: ["D1"], fit: ["D1", "D2"] },
+    rationale: {
+      engineering: "A cloud-native platform at meaningful transaction scale with active technical hiring, but no reliable public engineering-team count.",
+      ai: "Technology leadership described an AI-native programme with fraud, chargeback, Gemini, and university-partnership use cases.",
+      growth: "$190m investment explicitly allocated to UK growth and European expansion.",
+      fit: "Substantial UK transaction volume, 110,000+ customers, and a complex integration estate.",
+    },
+    sources: [
+      ["D1", "Dojo announces $190m investment", "28 May 2025", "https://dojo.tech/resources/dojo-announces-landmark-investment-from-vitruvian-partners/"],
+      ["D2", "Dojo business platform", "Current company page", "https://dojo.tech/"],
+      ["D3", "Dojo: AI in business", "Company interview", "https://dojo.tech/resources/tech-on-toast-with-dojo-episode-six-ai-in-business/"],
+      ["D4", "Careers at Dojo", "Current careers page", "https://dojo.careers/jobs/"],
+    ],
+    why: "Dojo’s investment, operational scale, and stated AI-native ambition support a strong reason to test for an active developer-tooling initiative.",
+    entry: "Explore bounded product-development workflows where velocity can improve without weakening review or security controls.",
+    stakeholders: [["Potential champion", "Engineering Director"], ["Potential buyer", "Technology SVP"], ["Likely users", "Software Engineers"], ["Likely reviewer", "Security & Legal"]],
+    evaluation: ["40 developers", "30 days", "2 product teams"],
+  },
+  {
+    name: "GoCardless", segment: "Mid-market", sector: "Fintech", signal: "Production ML outcomes", location: "London",
+    factors: { engineering: 4, ai: 4, growth: 4, fit: 4 },
+    factorSources: { engineering: ["G3"], ai: ["G2"], growth: ["G1", "G4"], fit: ["G2", "G3"] },
+    rationale: {
+      engineering: "A distributed Platform Engineering organisation within an 806-person company; engineering headcount is not public.",
+      ai: "Production ML uses data from 38m+ accounts and reportedly reduced late-payment failures by more than 80%.",
+      growth: "38% FY2024 revenue growth and the first adjusted EBITDA-positive quarter in 2025.",
+      fit: "Large UK employee concentration, distributed engineering, and operational AI, without a disclosed tooling trigger.",
+    },
+    sources: [
+      ["G1", "GoCardless revenue rises 38% in FY24", "3 Feb 2025", "https://gocardless.com/blog/gocardless-revenues-up-38-percent-in-fy24"],
+      ["G2", "GoCardless launches ML settlement tool", "5 Aug 2025", "https://gocardless.com/blog/gocardless-launches-industry-leading-ai-tool-for-faster-more-reliable-same-day-payments"],
+      ["G3", "GoCardless Site Reliability Engineer listing", "Current job listing", "https://job-boards.greenhouse.io/gocardless/jobs/7996584"],
+      ["G4", "GoCardless achieves profitability", "8 Oct 2025", "https://gocardless.com/blog/gocardless-achieves-profitability"],
+    ],
+    why: "The company has a mature platform organisation, measurable ML outcomes, and improving commercial performance, balanced by likely enterprise controls.",
+    entry: "Map existing developer tooling and evaluate one measured workflow using a controlled cohort.",
+    stakeholders: [["Potential champion", "Platform Engineering"], ["Potential buyer", "VP Engineering"], ["Likely users", "Product Engineers"], ["Likely reviewer", "Security & Procurement"]],
+    evaluation: ["40 developers", "30 days", "Control cohort"],
   },
 ];
 
-let weights = { engineering: 30, ai: 20, growth: 20, fit: 15, trigger: 15 };
+const weights = { engineering: 25, ai: 25, growth: 25, fit: 25 };
 let activeSegment = "All";
 let selectedAccount = null;
 
@@ -170,7 +228,8 @@ function score(account) {
     (total, [key, weight]) => total + account.factors[key] * weight,
     0,
   );
-  return Math.round(weighted / Object.values(weights).reduce((a, b) => a + b, 0));
+  const totalWeight = Object.values(weights).reduce((a, b) => a + b, 0);
+  return Math.round((weighted / (totalWeight * 5)) * 100);
 }
 
 function navigate(viewName) {
@@ -221,14 +280,32 @@ function selectAccount(name) {
           <span class="tag">${account.sector}</span>
         </div>
       </div>
-      <div class="detail-score"><strong>${score(account)}</strong><span>FIT SCORE</span></div>
+      <div class="detail-score"><strong>${score(account)}</strong><span>EVIDENCE SCORE</span></div>
     </div>
     <div class="detail-section">
-      <h4>WHY THIS ACCOUNT</h4>
+      <h4>EVIDENCE-BASED CASE</h4>
       <p>${account.why}</p>
     </div>
     <div class="detail-section">
-      <h4>ENTRY HYPOTHESIS</h4>
+      <h4>SCORE BREAKDOWN · EACH DIMENSION 25%</h4>
+      <div class="score-breakdown">
+        ${Object.entries(account.factors).map(([key, value]) => `
+          <div class="factor-row">
+            <div class="factor-heading"><span>${weightLabels[key]}</span><strong>${value}/5</strong></div>
+            <div class="factor-track"><span style="width:${value * 20}%"></span></div>
+            <p>${account.rationale[key]}</p>
+            <div class="factor-citations">
+              ${account.factorSources[key].map((id) => {
+                const source = account.sources.find(([sourceId]) => sourceId === id);
+                return `<a href="${source[3]}" target="_blank" rel="noopener noreferrer" aria-label="Open source ${id}">${id} ↗</a>`;
+              }).join("")}
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+    <div class="detail-section">
+      <h4>RECOMMENDED ENTRY HYPOTHESIS · NOT A FACT</h4>
       <p>${account.entry}</p>
     </div>
     <div class="detail-section">
@@ -239,7 +316,13 @@ function selectAccount(name) {
       <h4>ILLUSTRATIVE EVALUATION</h4>
       <div class="evaluation-line">${account.evaluation.map((item) => `<span>${item}</span>`).join("")}</div>
     </div>
-    <div class="confidence"><span>PUBLIC-SIGNAL HYPOTHESIS</span><span>CONFIDENCE · ${account.confidence.toUpperCase()}</span></div>
+    <div class="detail-section source-section">
+      <h4>PUBLIC SOURCES</h4>
+      <ol class="source-list">${account.sources.map(([id, title, date, url]) => `
+        <li><a href="${url}" target="_blank" rel="noopener noreferrer"><span>${id}</span><div><strong>${title}</strong><small>${date} · Open source ↗</small></div></a></li>
+      `).join("")}</ol>
+    </div>
+    <div class="confidence"><span>RESEARCHED 22 JUL 2026</span><span>CLICK ANY SOURCE TO VERIFY</span></div>
   `;
   renderAccounts();
 }
@@ -252,32 +335,30 @@ document.querySelectorAll(".filter").forEach((filter) => filter.addEventListener
 }));
 
 const weightLabels = {
-  engineering: "Engineering intensity",
-  ai: "AI readiness",
-  growth: "Growth signals",
+  engineering: "Engineering evidence",
+  ai: "AI signal",
+  growth: "Growth trigger",
   fit: "Commercial fit",
-  trigger: "Trigger events",
 };
 
 function renderWeightControls() {
-  document.getElementById("weightControls").innerHTML = Object.entries(weights).map(([key, value]) => `
-    <label class="weight-control">
-      <span><b>${weightLabels[key]}</b><output id="${key}WeightOut">${value}%</output></span>
-      <input class="weight-input" data-weight="${key}" type="range" min="5" max="50" step="5" value="${value}" />
-    </label>
-  `).join("");
-  document.querySelectorAll(".weight-input").forEach((input) => input.addEventListener("input", updateWeightTotal));
-  updateWeightTotal();
-}
-
-function updateWeightTotal() {
-  const total = [...document.querySelectorAll(".weight-input")].reduce((sum, input) => {
-    document.getElementById(`${input.dataset.weight}WeightOut`).textContent = `${input.value}%`;
-    return sum + Number(input.value);
-  }, 0);
-  const totalLabel = document.getElementById("weightTotal");
-  totalLabel.textContent = `Total: ${total}%`;
-  totalLabel.style.color = total === 100 ? "var(--green)" : "var(--accent)";
+  const rubric = [
+    ["0", "No public evidence"],
+    ["1", "Weak or indirect signal"],
+    ["2", "Limited or dated evidence"],
+    ["3", "Clear current evidence"],
+    ["4", "Strong, quantified evidence"],
+    ["5", "Exceptional evidence across multiple sources"],
+  ];
+  document.getElementById("weightControls").innerHTML = `
+    <div class="dimension-grid">
+      ${Object.entries(weightLabels).map(([key, label]) => `<div><span>${label}</span><strong>${weights[key]}%</strong></div>`).join("")}
+    </div>
+    <div class="rubric-scale">
+      ${rubric.map(([value, meaning]) => `<div><strong>${value}</strong><span>${meaning}</span></div>`).join("")}
+    </div>
+    <p class="rubric-note">Scores measure the strength of public evidence—not purchase intent. Commercial fit considers UK accessibility, organisational scale, and whether the cited context supports a credible developer-tool conversation.</p>
+  `;
 }
 
 const weightsModal = document.getElementById("weightsModal");
@@ -293,9 +374,6 @@ function closeWeights() {
 document.getElementById("closeWeights").addEventListener("click", closeWeights);
 weightsModal.addEventListener("click", (event) => { if (event.target === weightsModal) closeWeights(); });
 document.getElementById("applyWeights").addEventListener("click", () => {
-  document.querySelectorAll(".weight-input").forEach((input) => { weights[input.dataset.weight] = Number(input.value); });
-  renderAccounts();
-  if (selectedAccount) selectAccount(selectedAccount);
   closeWeights();
 });
 

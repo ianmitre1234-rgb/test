@@ -77,8 +77,8 @@
               <span class="signal-core">LON</span>
             </div>
             <div class="signal-footer">
-              <div><strong>42</strong><span>accounts mapped</span></div>
-              <div><strong>12</strong><span>priority hypotheses</span></div>
+              <div><strong>09</strong><span>researched accounts</span></div>
+              <div><strong>35</strong><span>cited public sources</span></div>
               <div><strong>4</strong><span>focused plays</span></div>
             </div>
           </div>
@@ -91,9 +91,9 @@
             <span class="metric-change">Base case · 4.0× coverage</span>
           </article>
           <article>
-            <span class="metric-number">08</span>
+            <span class="metric-number">09</span>
             <span class="metric-label">Active hypotheses</span>
-            <span class="metric-change">Across 4 verticals</span>
+            <span class="metric-change">Across 5 sectors</span>
           </article>
           <article>
             <span class="metric-number">30d</span>
@@ -165,7 +165,7 @@
             <button class="filter" data-segment="Scale-up">Scale-up</button>
             <button class="filter" data-segment="Mid-market">Mid-market</button>
           </div>
-          <button class="button secondary compact" id="editWeights">Edit scoring model</button>
+          <button class="button secondary compact" id="editWeights">How scoring works</button>
         </div>
 
         <div class="territory-layout">
@@ -276,14 +276,14 @@
     <div class="modal-backdrop" id="weightsModal" aria-hidden="true">
       <div class="modal" role="dialog" aria-modal="true" aria-labelledby="weightsTitle">
         <div class="modal-header">
-          <div><p class="eyebrow">PRIORITISATION</p><h2 id="weightsTitle">Edit scoring model</h2></div>
+          <div><p class="eyebrow">PRIORITISATION</p><h2 id="weightsTitle">How scoring works</h2></div>
           <button class="modal-close" id="closeWeights" aria-label="Close">×</button>
         </div>
-        <p class="modal-intro">Change what matters. Rankings update when you apply the model.</p>
-        <div id="weightControls"></div>
+        <p class="modal-intro">Four evidence-based dimensions, equally weighted. Missing evidence lowers the score—it is never filled with an optimistic assumption.</p>
+        <div id="weightControls" class="rubric"></div>
         <div class="modal-footer">
-          <span id="weightTotal">Total: 100%</span>
-          <button class="button primary" id="applyWeights">Apply model</button>
+          <span>OVERALL = (POINTS EARNED ÷ 20) × 100</span>
+          <button class="button primary" id="applyWeights">Understood</button>
         </div>
       </div>
     </div>
