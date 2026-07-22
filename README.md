@@ -1,4 +1,4 @@
-# Commercial GTM Lab
+# IanMitreGTM
 
 An interactive, outside-in commercial territory hypothesis created for Cursor's
 Commercial Account Executive role in London.
