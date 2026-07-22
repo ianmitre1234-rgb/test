@@ -294,6 +294,57 @@ document.getElementById("themeToggle").addEventListener("click", () => {
   document.body.classList.toggle("dark");
 });
 
+function renderLandscape() {
+  const plot = document.getElementById("opportunityLandscape");
+  const sectorColours = {
+    Edtech: "#7d6fe8",
+    AI: "#ff5a36",
+    "Enterprise AI": "#d1467c",
+    Fintech: "#237b57",
+    Insurtech: "#d39a18",
+  };
+  const collisions = {};
+
+  plot.querySelectorAll(".landscape-bubble").forEach((bubble) => bubble.remove());
+  accounts.forEach((account) => {
+    const technical = account.factors.engineering + account.factors.ai;
+    const commercial = account.factors.growth + account.factors.fit;
+    const positionKey = `${technical}-${commercial}`;
+    const collisionIndex = collisions[positionKey] || 0;
+    collisions[positionKey] = collisionIndex + 1;
+    const collisionOffsets = [[-3, 3], [3, -3], [0, 0], [-5, -4]];
+    const [offsetX, offsetY] = collisionOffsets[collisionIndex] || [0, 0];
+    const x = 18 + ((commercial - 8) / 2) * 64 + offsetX;
+    const y = 18 + ((technical - 7) / 3) * 64 + offsetY;
+    const initials = account.name.length > 9
+      ? account.name.split(/\s+/).map((word) => word[0]).join("").slice(0, 3)
+      : account.name.slice(0, 3);
+    const button = document.createElement("button");
+    button.className = `landscape-bubble ${account.segment.toLowerCase()}`;
+    button.style.setProperty("--x", `${x}%`);
+    button.style.setProperty("--y", `${y}%`);
+    button.style.setProperty("--size", `${36 + (score(account) - 80) * 0.35}px`);
+    button.style.setProperty("--bubble", sectorColours[account.sector] || "var(--accent)");
+    button.setAttribute("aria-label", `Open ${account.name}, evidence score ${score(account)}`);
+    button.innerHTML = `
+      ${initials.toUpperCase()}
+      <span class="bubble-name">${account.name}</span>
+      <span class="bubble-tooltip">
+        <strong>${account.name} · ${score(account)}/100</strong>
+        <span>${account.signal}</span>
+        <span>Technical evidence <b>${technical}/10</b></span>
+        <span>Commercial timing <b>${commercial}/10</b></span>
+        <span>${account.sources.length} scoring sources · Click to inspect</span>
+      </span>
+    `;
+    button.addEventListener("click", () => {
+      navigate("territory");
+      selectAccount(account.name);
+    });
+    plot.appendChild(button);
+  });
+}
+
 function renderAccounts() {
   const query = document.getElementById("accountSearch").value.toLowerCase();
   const filtered = accounts
@@ -501,5 +552,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderAccounts();
+renderLandscape();
 updateModel();
 renderPhase(0);
